@@ -15,6 +15,12 @@ public class AppDependencyContainer{
     }
     
     func makeMainViewController() -> MainViewController{
-        return MainViewController(mainViewModel: sharedMainViewModel)
+        let launchViewController = makeLaunchViewController()
+        return MainViewController(mainViewModel: sharedMainViewModel, launchViewController: launchViewController)
+    }
+    
+    func makeLaunchViewController() -> LaunchViewController{
+        let launchViewModel = LaunchViewModel()
+        return LaunchViewController(viewModel: launchViewModel)
     }
 }

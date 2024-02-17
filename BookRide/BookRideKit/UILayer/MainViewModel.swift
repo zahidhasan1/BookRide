@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import Combine
 
 public class MainViewModel{
+    //MARK: - Properties
+    @Published public private(set) var view: MainView = .launching
     public init(){}
 }
