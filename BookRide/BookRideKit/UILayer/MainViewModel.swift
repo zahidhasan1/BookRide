@@ -8,8 +8,18 @@
 import Foundation
 import Combine
 
-public class MainViewModel{
+public class MainViewModel: SignedInResponder, NotSignedInResponder {
     //MARK: - Properties
     @Published public private(set) var view: MainView = .launching
+    
+    //Methods
     public init(){}
+    
+    public func signedIn() {
+        view = .signedIn
+    }
+    
+    public func notSignedIn() {
+        view = .onboarding
+    }
 }

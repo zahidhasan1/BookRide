@@ -17,9 +17,14 @@ class LaunchRootView: NiblessView {
         self.viewModel = viewModel
         super.init(frame: frame)
         styleView()
+        loadUserSession()
     }
 
     func styleView(){
         backgroundColor = Color.background
+    }
+    
+    func loadUserSession(){
+        viewModel.loadUserSession()
     }
 }

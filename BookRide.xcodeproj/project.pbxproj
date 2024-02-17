@@ -25,6 +25,11 @@
 		C0B8E6152B80D97A0004BBFE /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E6142B80D97A0004BBFE /* Color.swift */; };
 		C0B8E6192B80DC540004BBFE /* LaunchRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E6182B80DC540004BBFE /* LaunchRootView.swift */; };
 		C0B8E61B2B80E2010004BBFE /* ViewControllerContainment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E61A2B80E2010004BBFE /* ViewControllerContainment.swift */; };
+		C0B8E61F2B80F49D0004BBFE /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E61E2B80F49D0004BBFE /* OnboardingViewController.swift */; };
+		C0B8E6242B80FE820004BBFE /* UserAuthenticationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E6232B80FE820004BBFE /* UserAuthenticationProtocol.swift */; };
+		C0B8E6262B80FF780004BBFE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E6252B80FF780004BBFE /* WelcomeViewController.swift */; };
+		C0B8E6282B80FF880004BBFE /* WelcomeRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E6272B80FF880004BBFE /* WelcomeRootView.swift */; };
+		C0B8E62E2B81075A0004BBFE /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E62D2B81075A0004BBFE /* OnboardingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +72,11 @@
 		C0B8E6142B80D97A0004BBFE /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C0B8E6182B80DC540004BBFE /* LaunchRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRootView.swift; sourceTree = "<group>"; };
 		C0B8E61A2B80E2010004BBFE /* ViewControllerContainment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerContainment.swift; sourceTree = "<group>"; };
+		C0B8E61E2B80F49D0004BBFE /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		C0B8E6232B80FE820004BBFE /* UserAuthenticationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthenticationProtocol.swift; sourceTree = "<group>"; };
+		C0B8E6252B80FF780004BBFE /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		C0B8E6272B80FF880004BBFE /* WelcomeRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRootView.swift; sourceTree = "<group>"; };
+		C0B8E62D2B81075A0004BBFE /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +219,8 @@
 		C00DB6D42B7FF912008DFCB9 /* iOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				C0B8E61C2B80F45D0004BBFE /* Onboarding */,
+				C0B8E61E2B80F49D0004BBFE /* OnboardingViewController.swift */,
 				C00DB6DB2B7FFB38008DFCB9 /* AppDependencyContainer.swift */,
 				C00DB6D52B7FF95F008DFCB9 /* MainViewController.swift */,
 				C0B8E6102B80D4E50004BBFE /* LaunchViewController.swift */,
@@ -227,9 +239,11 @@
 		C00DB6D82B7FF9D0008DFCB9 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
+				C0B8E6292B8107070004BBFE /* Onboarding */,
 				C0B8E60E2B80D4720004BBFE /* LaunchViewModel.swift */,
 				C0B8E60C2B80B0E70004BBFE /* MainView.swift */,
 				C00DB6D92B7FFA12008DFCB9 /* MainViewModel.swift */,
+				C0B8E6232B80FE820004BBFE /* UserAuthenticationProtocol.swift */,
 			);
 			path = UILayer;
 			sourceTree = "<group>";
@@ -248,6 +262,71 @@
 				C0B8E6142B80D97A0004BBFE /* Color.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		C0B8E61C2B80F45D0004BBFE /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C0B8E6202B80F6180004BBFE /* SignIn */,
+				C0B8E6212B80F61F0004BBFE /* SignUp */,
+				C0B8E61D2B80F4740004BBFE /* Welcome */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		C0B8E61D2B80F4740004BBFE /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				C0B8E6252B80FF780004BBFE /* WelcomeViewController.swift */,
+				C0B8E6272B80FF880004BBFE /* WelcomeRootView.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		C0B8E6202B80F6180004BBFE /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		C0B8E6212B80F61F0004BBFE /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		C0B8E6292B8107070004BBFE /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C0B8E62C2B81073B0004BBFE /* Welcome */,
+				C0B8E62B2B8107330004BBFE /* SignUp */,
+				C0B8E62A2B81072B0004BBFE /* SignIn */,
+				C0B8E62D2B81075A0004BBFE /* OnboardingViewModel.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		C0B8E62A2B81072B0004BBFE /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		C0B8E62B2B8107330004BBFE /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		C0B8E62C2B81073B0004BBFE /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +460,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C00DB6992B7FE6E9008DFCB9 /* AppDelegate.swift in Sources */,
+				C0B8E6282B80FF880004BBFE /* WelcomeRootView.swift in Sources */,
+				C0B8E6262B80FF780004BBFE /* WelcomeViewController.swift in Sources */,
 				C0B8E6112B80D4E50004BBFE /* LaunchViewController.swift in Sources */,
 				C0B8E6152B80D97A0004BBFE /* Color.swift in Sources */,
 				C0B8E60D2B80B0E70004BBFE /* MainView.swift in Sources */,
@@ -391,6 +472,9 @@
 				C0B8E61B2B80E2010004BBFE /* ViewControllerContainment.swift in Sources */,
 				C00DB6D32B7FF85A008DFCB9 /* NiblessView.swift in Sources */,
 				C00DB6D62B7FF95F008DFCB9 /* MainViewController.swift in Sources */,
+				C0B8E62E2B81075A0004BBFE /* OnboardingViewModel.swift in Sources */,
+				C0B8E6242B80FE820004BBFE /* UserAuthenticationProtocol.swift in Sources */,
+				C0B8E61F2B80F49D0004BBFE /* OnboardingViewController.swift in Sources */,
 				C00DB6DA2B7FFA12008DFCB9 /* MainViewModel.swift in Sources */,
 				C0B8E60F2B80D4720004BBFE /* LaunchViewModel.swift in Sources */,
 			);

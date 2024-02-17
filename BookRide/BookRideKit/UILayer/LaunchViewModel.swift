@@ -8,5 +8,25 @@
 import Foundation
 
 public class LaunchViewModel{
-    public init(){}
+    //MARK: - Properties
+    let signedInResponder: SignedInResponder
+    let notSignedInResponder: NotSignedInResponder
+    
+    //MARK: - Methods
+    init(signedInResponder: SignedInResponder, notSignedInResponder: NotSignedInResponder) {
+        self.signedInResponder = signedInResponder
+        self.notSignedInResponder = notSignedInResponder
+    }
+    
+    func loadUserSession(){
+        userNotSignedIn()
+    }
+    
+    func userSignedIn(){
+        signedInResponder.signedIn()
+    }
+    
+    func userNotSignedIn(){
+        notSignedInResponder.notSignedIn()
+    }
 }

@@ -13,6 +13,7 @@ public class MainViewController: NiblessViewController {
     //ViewModel
     let mainViewModel: MainViewModel
     let launchViewController: LaunchViewController
+    let onBoardingViewController: OnboardingViewController
     //ChildViewControllers
     
     
@@ -22,9 +23,11 @@ public class MainViewController: NiblessViewController {
     
     //MARK: - Methods
     public init(mainViewModel: MainViewModel,
-                launchViewController: LaunchViewController) {
+                launchViewController: LaunchViewController,
+                onBoardingViewController: OnboardingViewController) {
         self.mainViewModel = mainViewModel
         self.launchViewController = launchViewController
+        self.onBoardingViewController = onBoardingViewController
         super.init()
     }
     
@@ -44,11 +47,13 @@ public class MainViewController: NiblessViewController {
     func present(_ view: MainView){
         switch view {
         case .launching:
+            print("Presenting LaunchViewController")
             presentLaunchViewController()
         case .onboarding:
-            print("Onboarding view")
+            print("Presenting Onboarding ViewController")
+            presentOnboardingViewController()
         case .signedIn:
-            print("SignedIn view")
+            print("Presenting SignedInViewController")
         }
     }
     
@@ -65,5 +70,13 @@ public class MainViewController: NiblessViewController {
 extension MainViewController{
     func presentLaunchViewController(){
         addFullScreen(childViewController: launchViewController)
+    }
+    
+    func presentOnboardingViewController(){
+        onBoardingViewController.modalPresentationStyle = .fullScreen
+        present(onBoardingViewController, animated: true) {[weak self] in
+            guard let self = self else {return}
+            self.remove(childViewController: self.launchViewController)
+        }
     }
 }

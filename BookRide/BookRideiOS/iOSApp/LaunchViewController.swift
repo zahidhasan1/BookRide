@@ -24,3 +24,7 @@ public class LaunchViewController: NiblessViewController{
         super.viewDidLoad()
     }
 }
+
+protocol LaunchViewModelFactory{
+    func makeLaunchViewModel() -> LaunchViewModel
+}
