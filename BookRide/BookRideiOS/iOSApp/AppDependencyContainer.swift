@@ -16,9 +16,9 @@ public class AppDependencyContainer{
     
     func makeMainViewController() -> MainViewController{
         let launchViewController = makeLaunchViewController()
-        let onboardingViewController = makeOnBoardingViewController()
+        let onboardingDependencyContainer = OnboardingDependencyContainer()
         
-        return MainViewController(mainViewModel: sharedMainViewModel, launchViewController: launchViewController, onBoardingViewController: onboardingViewController)
+        return MainViewController(mainViewModel: sharedMainViewModel, launchViewController: launchViewController, onBoardingViewController: onboardingDependencyContainer.makeOnBoardingViewController())
     }
     
     func makeLaunchViewController() -> LaunchViewController{
@@ -26,19 +26,13 @@ public class AppDependencyContainer{
         return LaunchViewController(viewModel: launchViewModel)
     }
     
-    func makeLaunchViewModel() -> LaunchViewModel {
-        return LaunchViewModel(signedInResponder: sharedMainViewModel, notSignedInResponder: sharedMainViewModel)
-    }
-    
     func makeOnBoardingViewModel() -> OnboardingViewModel{
         return OnboardingViewModel()
-    }
-    
-    func makeOnBoardingViewController() -> OnboardingViewController{
-        let onboardingViewModel = makeOnBoardingViewModel()
-        return OnboardingViewController(viewModel: onboardingViewModel)
     }
 }
 
 extension AppDependencyContainer : LaunchViewModelFactory{
+    func makeLaunchViewModel() -> LaunchViewModel {
+        return LaunchViewModel(signedInResponder: sharedMainViewModel, notSignedInResponder: sharedMainViewModel)
+    }
 }

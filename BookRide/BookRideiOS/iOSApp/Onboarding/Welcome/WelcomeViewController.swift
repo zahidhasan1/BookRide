@@ -7,13 +7,23 @@
 
 import UIKit
 
-class WelcomeViewController : NiblessViewController{
+public class WelcomeViewController : NiblessViewController{
     //Properties
+    let welcomeViewModelFactory: WelcomeViewModelFactory
+    
+    
     //Methods
-    override func loadView() {
-        
+    init(welcomeViewModelFactory: WelcomeViewModelFactory) {
+        self.welcomeViewModelFactory = welcomeViewModelFactory
+        super.init()
     }
-    override func viewDidLoad() {
+    
+    public override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .red
     }
+} 
+
+protocol WelcomeViewModelFactory{
+    func makeWelcomeViewModel() -> WelcomeViewModel
 }

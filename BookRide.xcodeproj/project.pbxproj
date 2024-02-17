@@ -19,6 +19,13 @@
 		C00DB6D62B7FF95F008DFCB9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00DB6D52B7FF95F008DFCB9 /* MainViewController.swift */; };
 		C00DB6DA2B7FFA12008DFCB9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00DB6D92B7FFA12008DFCB9 /* MainViewModel.swift */; };
 		C00DB6DC2B7FFB38008DFCB9 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00DB6DB2B7FFB38008DFCB9 /* AppDependencyContainer.swift */; };
+		C04B6C7C2B81381F009137A7 /* NiblessNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B6C7B2B81381F009137A7 /* NiblessNavigationController.swift */; };
+		C04B6C7E2B81398D009137A7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B6C7D2B81398D009137A7 /* OnboardingView.swift */; };
+		C04B6C812B813A18009137A7 /* NavigationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B6C802B813A18009137A7 /* NavigationAction.swift */; };
+		C04B6C832B814637009137A7 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B6C822B814637009137A7 /* WelcomeViewModel.swift */; };
+		C04B6C852B814685009137A7 /* GotoSignInNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B6C842B814685009137A7 /* GotoSignInNavigator.swift */; };
+		C04B6C872B814694009137A7 /* GotoSignUpNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B6C862B814694009137A7 /* GotoSignUpNavigator.swift */; };
+		C04B6C892B81499D009137A7 /* OnboardingDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B6C882B81499D009137A7 /* OnboardingDependencyContainer.swift */; };
 		C0B8E60D2B80B0E70004BBFE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E60C2B80B0E70004BBFE /* MainView.swift */; };
 		C0B8E60F2B80D4720004BBFE /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E60E2B80D4720004BBFE /* LaunchViewModel.swift */; };
 		C0B8E6112B80D4E50004BBFE /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E6102B80D4E50004BBFE /* LaunchViewController.swift */; };
@@ -66,6 +73,13 @@
 		C00DB6D52B7FF95F008DFCB9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C00DB6D92B7FFA12008DFCB9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		C00DB6DB2B7FFB38008DFCB9 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
+		C04B6C7B2B81381F009137A7 /* NiblessNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessNavigationController.swift; sourceTree = "<group>"; };
+		C04B6C7D2B81398D009137A7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		C04B6C802B813A18009137A7 /* NavigationAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAction.swift; sourceTree = "<group>"; };
+		C04B6C822B814637009137A7 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		C04B6C842B814685009137A7 /* GotoSignInNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GotoSignInNavigator.swift; sourceTree = "<group>"; };
+		C04B6C862B814694009137A7 /* GotoSignUpNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GotoSignUpNavigator.swift; sourceTree = "<group>"; };
+		C04B6C882B81499D009137A7 /* OnboardingDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDependencyContainer.swift; sourceTree = "<group>"; };
 		C0B8E60C2B80B0E70004BBFE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C0B8E60E2B80D4720004BBFE /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		C0B8E6102B80D4E50004BBFE /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +226,7 @@
 			children = (
 				C00DB6D02B7FF6C7008DFCB9 /* NiblessViewController.swift */,
 				C00DB6D22B7FF85A008DFCB9 /* NiblessView.swift */,
+				C04B6C7B2B81381F009137A7 /* NiblessNavigationController.swift */,
 			);
 			path = NiblessComponents;
 			sourceTree = "<group>";
@@ -220,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				C0B8E61C2B80F45D0004BBFE /* Onboarding */,
-				C0B8E61E2B80F49D0004BBFE /* OnboardingViewController.swift */,
 				C00DB6DB2B7FFB38008DFCB9 /* AppDependencyContainer.swift */,
 				C00DB6D52B7FF95F008DFCB9 /* MainViewController.swift */,
 				C0B8E6102B80D4E50004BBFE /* LaunchViewController.swift */,
@@ -248,6 +262,14 @@
 			path = UILayer;
 			sourceTree = "<group>";
 		};
+		C04B6C7F2B813A01009137A7 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				C04B6C802B813A18009137A7 /* NavigationAction.swift */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
 		C0B8E6122B80D9530004BBFE /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +292,8 @@
 				C0B8E6202B80F6180004BBFE /* SignIn */,
 				C0B8E6212B80F61F0004BBFE /* SignUp */,
 				C0B8E61D2B80F4740004BBFE /* Welcome */,
+				C0B8E61E2B80F49D0004BBFE /* OnboardingViewController.swift */,
+				C04B6C882B81499D009137A7 /* OnboardingDependencyContainer.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -300,10 +324,14 @@
 		C0B8E6292B8107070004BBFE /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				C04B6C7F2B813A01009137A7 /* Reusable */,
 				C0B8E62C2B81073B0004BBFE /* Welcome */,
 				C0B8E62B2B8107330004BBFE /* SignUp */,
 				C0B8E62A2B81072B0004BBFE /* SignIn */,
 				C0B8E62D2B81075A0004BBFE /* OnboardingViewModel.swift */,
+				C04B6C7D2B81398D009137A7 /* OnboardingView.swift */,
+				C04B6C842B814685009137A7 /* GotoSignInNavigator.swift */,
+				C04B6C862B814694009137A7 /* GotoSignUpNavigator.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -325,6 +353,7 @@
 		C0B8E62C2B81073B0004BBFE /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				C04B6C822B814637009137A7 /* WelcomeViewModel.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -465,17 +494,24 @@
 				C0B8E6112B80D4E50004BBFE /* LaunchViewController.swift in Sources */,
 				C0B8E6152B80D97A0004BBFE /* Color.swift in Sources */,
 				C0B8E60D2B80B0E70004BBFE /* MainView.swift in Sources */,
+				C04B6C7C2B81381F009137A7 /* NiblessNavigationController.swift in Sources */,
+				C04B6C852B814685009137A7 /* GotoSignInNavigator.swift in Sources */,
 				C00DB6DC2B7FFB38008DFCB9 /* AppDependencyContainer.swift in Sources */,
 				C0B8E6192B80DC540004BBFE /* LaunchRootView.swift in Sources */,
 				C00DB6D12B7FF6C7008DFCB9 /* NiblessViewController.swift in Sources */,
 				C00DB69B2B7FE6E9008DFCB9 /* SceneDelegate.swift in Sources */,
+				C04B6C892B81499D009137A7 /* OnboardingDependencyContainer.swift in Sources */,
 				C0B8E61B2B80E2010004BBFE /* ViewControllerContainment.swift in Sources */,
+				C04B6C812B813A18009137A7 /* NavigationAction.swift in Sources */,
 				C00DB6D32B7FF85A008DFCB9 /* NiblessView.swift in Sources */,
+				C04B6C7E2B81398D009137A7 /* OnboardingView.swift in Sources */,
 				C00DB6D62B7FF95F008DFCB9 /* MainViewController.swift in Sources */,
 				C0B8E62E2B81075A0004BBFE /* OnboardingViewModel.swift in Sources */,
+				C04B6C832B814637009137A7 /* WelcomeViewModel.swift in Sources */,
 				C0B8E6242B80FE820004BBFE /* UserAuthenticationProtocol.swift in Sources */,
 				C0B8E61F2B80F49D0004BBFE /* OnboardingViewController.swift in Sources */,
 				C00DB6DA2B7FFA12008DFCB9 /* MainViewModel.swift in Sources */,
+				C04B6C872B814694009137A7 /* GotoSignUpNavigator.swift in Sources */,
 				C0B8E60F2B80D4720004BBFE /* LaunchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
