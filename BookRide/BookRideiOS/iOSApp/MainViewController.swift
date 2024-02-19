@@ -74,7 +74,7 @@ extension MainViewController{
     
     func presentOnboardingViewController(){
         onBoardingViewController.modalPresentationStyle = .fullScreen
-        present(onBoardingViewController, animated: true) {[weak self] in
+        present(onBoardingViewController, animated: false) {[weak self] in
             guard let self = self else {return}
             self.remove(childViewController: self.launchViewController)
         }

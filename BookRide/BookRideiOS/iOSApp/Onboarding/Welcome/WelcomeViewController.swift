@@ -18,9 +18,13 @@ public class WelcomeViewController : NiblessViewController{
         super.init()
     }
     
+    public override func loadView() {
+        let viewModel = welcomeViewModelFactory.makeWelcomeViewModel()
+        view = WelcomeRootView(viewModel: viewModel)
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red
     }
 } 
 

@@ -29,8 +29,6 @@ public class OnboardingViewController: NiblessNavigationController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .green
-        
         let navigationActionPublisher = viewModel.$navigationAction.eraseToAnyPublisher()
         subscribe(to: navigationActionPublisher)
     }
