@@ -21,19 +21,28 @@ public class OnboardingDependencyContainer{
     func makeOnBoardingViewController() -> OnboardingViewController{
         
         let welcomeViewController = makeWelcomeViewController()
+        let signInViewController = makeSignInViewController()
         
-        return OnboardingViewController(viewModel: sharedOnboardingViewModel, welcomeViewController: welcomeViewController)
+        return OnboardingViewController(viewModel: sharedOnboardingViewModel, welcomeViewController: welcomeViewController, signInViewController: signInViewController)
     }
     
     func makeWelcomeViewController() -> WelcomeViewController{
         return WelcomeViewController(welcomeViewModelFactory: self)
     }
+    
+    func makeSignInViewController() -> SignInViewController{
+        return SignInViewController(viewModelFactory: self)
+    }
 }
 
 extension OnboardingDependencyContainer: WelcomeViewModelFactory{
     func makeWelcomeViewModel() -> WelcomeViewModel {
-        return WelcomeViewModel()
+        return WelcomeViewModel(gotoSignInNavigator: sharedOnboardingViewModel, gotoSignUpNavigatopr: sharedOnboardingViewModel)
     }
-    
-    
+}
+
+extension OnboardingDependencyContainer: SignInViewModelFactory{
+    func makeSignInViewModel() -> SignInViewModel {
+        return SignInViewModel()
+    }
 }

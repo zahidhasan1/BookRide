@@ -28,6 +28,9 @@
 		C04B6C892B81499D009137A7 /* OnboardingDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B6C882B81499D009137A7 /* OnboardingDependencyContainer.swift */; };
 		C04B6C8B2B846FBC009137A7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B6C8A2B846FBC009137A7 /* UIColor+Extension.swift */; };
 		C04B6C8E2B847111009137A7 /* AppColorPallete.png in Resources */ = {isa = PBXBuildFile; fileRef = C04B6C8D2B847111009137A7 /* AppColorPallete.png */; };
+		C04B6C902B84720B009137A7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B6C8F2B84720B009137A7 /* SignInViewController.swift */; };
+		C04B6C922B847227009137A7 /* SignInRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B6C912B847227009137A7 /* SignInRootView.swift */; };
+		C04B6C952B847269009137A7 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B6C942B847269009137A7 /* SignInViewModel.swift */; };
 		C0B8E60D2B80B0E70004BBFE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E60C2B80B0E70004BBFE /* MainView.swift */; };
 		C0B8E60F2B80D4720004BBFE /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E60E2B80D4720004BBFE /* LaunchViewModel.swift */; };
 		C0B8E6112B80D4E50004BBFE /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8E6102B80D4E50004BBFE /* LaunchViewController.swift */; };
@@ -84,6 +87,9 @@
 		C04B6C882B81499D009137A7 /* OnboardingDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDependencyContainer.swift; sourceTree = "<group>"; };
 		C04B6C8A2B846FBC009137A7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		C04B6C8D2B847111009137A7 /* AppColorPallete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppColorPallete.png; sourceTree = "<group>"; };
+		C04B6C8F2B84720B009137A7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		C04B6C912B847227009137A7 /* SignInRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRootView.swift; sourceTree = "<group>"; };
+		C04B6C942B847269009137A7 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		C0B8E60C2B80B0E70004BBFE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C0B8E60E2B80D4720004BBFE /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		C0B8E6102B80D4E50004BBFE /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
@@ -324,6 +330,8 @@
 		C0B8E6202B80F6180004BBFE /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				C04B6C8F2B84720B009137A7 /* SignInViewController.swift */,
+				C04B6C912B847227009137A7 /* SignInRootView.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -353,6 +361,7 @@
 		C0B8E62A2B81072B0004BBFE /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				C04B6C942B847269009137A7 /* SignInViewModel.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -513,7 +522,9 @@
 				C04B6C852B814685009137A7 /* GotoSignInNavigator.swift in Sources */,
 				C00DB6DC2B7FFB38008DFCB9 /* AppDependencyContainer.swift in Sources */,
 				C0B8E6192B80DC540004BBFE /* LaunchRootView.swift in Sources */,
+				C04B6C922B847227009137A7 /* SignInRootView.swift in Sources */,
 				C00DB6D12B7FF6C7008DFCB9 /* NiblessViewController.swift in Sources */,
+				C04B6C902B84720B009137A7 /* SignInViewController.swift in Sources */,
 				C00DB69B2B7FE6E9008DFCB9 /* SceneDelegate.swift in Sources */,
 				C04B6C892B81499D009137A7 /* OnboardingDependencyContainer.swift in Sources */,
 				C0B8E61B2B80E2010004BBFE /* ViewControllerContainment.swift in Sources */,
@@ -525,6 +536,7 @@
 				C04B6C832B814637009137A7 /* WelcomeViewModel.swift in Sources */,
 				C0B8E6242B80FE820004BBFE /* UserAuthenticationProtocol.swift in Sources */,
 				C0B8E61F2B80F49D0004BBFE /* OnboardingViewController.swift in Sources */,
+				C04B6C952B847269009137A7 /* SignInViewModel.swift in Sources */,
 				C00DB6DA2B7FFA12008DFCB9 /* MainViewModel.swift in Sources */,
 				C04B6C8B2B846FBC009137A7 /* UIColor+Extension.swift in Sources */,
 				C04B6C872B814694009137A7 /* GotoSignUpNavigator.swift in Sources */,

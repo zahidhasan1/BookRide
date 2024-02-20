@@ -8,5 +8,24 @@
 import Foundation
 
 public class WelcomeViewModel{
-    init(){}
+    //MARK: - Properties
+    let signInNavigator: GotoSignInNavigator
+    let signUpNavigator: GotoSignUpNavigator
+    
+    //MARK: - Methods
+    init(gotoSignInNavigator: GotoSignInNavigator,
+         gotoSignUpNavigatopr: GotoSignUpNavigator){
+        self.signInNavigator = gotoSignInNavigator
+        self.signUpNavigator = gotoSignUpNavigatopr
+    }
+    
+    @objc
+    public func showSignUpView(){
+        //signUpNavigator.gotoSignUp()
+    }
+    
+    @objc
+    public func showSignInView(){
+        signInNavigator.gotoSignIn()
+    }
 }

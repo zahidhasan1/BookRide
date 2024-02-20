@@ -11,4 +11,13 @@ public enum OnboardingView{
     case welcome
     case signIn
     case signUp
+    
+    public func hideNavigationBar() -> Bool{
+        switch self {
+        case .welcome:
+            return true
+        default:
+            return false
+        }
+    }
 }

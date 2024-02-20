@@ -61,10 +61,12 @@ public class WelcomeRootView: NiblessView{
     }
     
     public override func didMoveToWindow() {
-        self.addSubview(backgroundView)
+        super.didMoveToWindow()
         guard hirarchyNotReady else {return}
         constructHirarchy()
         activateConstraints()
+        signInButton.addTarget(viewModel, action: #selector(viewModel.showSignInView), for: .touchUpInside)
+        signUpButton.addTarget(viewModel, action: #selector(viewModel.showSignUpView), for: .touchUpInside)
         hirarchyNotReady = false
     }
     

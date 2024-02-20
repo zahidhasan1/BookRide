@@ -23,4 +23,8 @@ public class OnboardingViewModel: GotoSignInNavigator, GotoSignUpNavigator{
     public func gotoSignUp() {
         navigationAction = .present(view: .signUp)
     }
+    
+    public func uiPresented(onboardingView: OnboardingView){
+        navigationAction = .presented(view: onboardingView)
+    }
 }
