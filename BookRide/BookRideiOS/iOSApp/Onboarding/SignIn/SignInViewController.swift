@@ -13,9 +13,6 @@ public class SignInViewController: NiblessViewController {
     let viewModel: SignInViewModel
     
     //MARK: - Methods
-    deinit{
-        print("Deinit SignInVC")
-    }
     
     init(viewModelFactory: SignInViewModelFactory){
         self.viewModelFactory = viewModelFactory

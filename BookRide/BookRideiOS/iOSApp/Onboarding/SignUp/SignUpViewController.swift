@@ -19,9 +19,12 @@ class SignUpViewController: NiblessViewController {
         super.init()
     }
     
+    public override func loadView() {
+        view = SignUpRootView(viewModel: viewModel)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
     }
 }
 

@@ -10,7 +10,7 @@ import UIKit
 final class CustomTextFields{
     public static func formTextField(placeholder: String) -> UITextField{
         let textField = UITextField()
-        textField.font = UIFont(name: "Avenir-Book", size: 16)
+        textField.font = UIFont(name: "Avenir-Medium", size: 16)
         textField.placeholder = placeholder
         textField.backgroundColor = .clear
         textField.textColor = Color.EggShell
@@ -27,7 +27,7 @@ final class CustomTextFields{
     
     public static func passwordTextField(placeholder: String) -> UITextField{
         let textField = UITextField()
-        textField.font = UIFont(name: "Avenir-Book", size: 16)
+        textField.font = UIFont(name: "Avenir-Medium", size: 16)
         textField.placeholder = placeholder
         textField.backgroundColor = .clear
         textField.textColor = Color.EggShell

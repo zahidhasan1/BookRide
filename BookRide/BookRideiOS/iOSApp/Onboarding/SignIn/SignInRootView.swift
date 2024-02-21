@@ -9,14 +9,11 @@ import UIKit
 
 class SignInRootView: NiblessView {
     
-    //Properties
+    //MARK: Properties
     var hirarchyNotReady: Bool = true
     let viewModel: SignInViewModel
     
-    let contentView: UIView = {
-        let view = UIView()
-        return view
-    }()
+    let contentView = UIView()
     
     let title: UILabel = {
         let label = UILabel()
@@ -107,8 +104,8 @@ class SignInRootView: NiblessView {
         return button
     }()
     
-    //Methods
-    init(frame: CGRect = .zero, 
+    //MARK: - Methods
+    init(frame: CGRect = .zero,
          viewModel: SignInViewModel){
         self.viewModel = viewModel
         super.init(frame: frame)
@@ -185,7 +182,7 @@ extension SignInRootView{
     
 }
 
-#Preview(traits: .portrait, body: {
-    var view = SignInRootView(viewModel: SignInViewModel())
-    return view
-})
+//#Preview(traits: .portrait, body: {
+//    var view = SignInRootView(viewModel: SignInViewModel())
+//    return view
+//})
