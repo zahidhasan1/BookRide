@@ -23,9 +23,12 @@ public class SignInViewController: NiblessViewController {
         super.init()
     }
     
+    public override func loadView() {
+        view = SignInRootView(viewModel: viewModel)
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .blue
     }
 }
 

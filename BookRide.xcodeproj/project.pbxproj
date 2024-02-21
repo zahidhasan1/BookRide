@@ -45,6 +45,7 @@
 		C0CE63C72B85BB280058B850 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE63C62B85BB280058B850 /* SignUpViewModel.swift */; };
 		C0CE63C92B85BB5B0058B850 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE63C82B85BB5B0058B850 /* SignUpViewController.swift */; };
 		C0CE63CB2B85BB730058B850 /* SignUpRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE63CA2B85BB730058B850 /* SignUpRootView.swift */; };
+		C0CE63CE2B8645B90058B850 /* CustomLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE63CD2B8645B80058B850 /* CustomLabels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		C0CE63C62B85BB280058B850 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		C0CE63C82B85BB5B0058B850 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C0CE63CA2B85BB730058B850 /* SignUpRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRootView.swift; sourceTree = "<group>"; };
+		C0CE63CD2B8645B80058B850 /* CustomLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +300,7 @@
 		C0B8E6122B80D9530004BBFE /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C0CE63CC2B8645600058B850 /* CustomLabels */,
 				C00DB6CF2B7FF69B008DFCB9 /* NiblessComponents */,
 			);
 			path = UIKit;
@@ -388,6 +391,14 @@
 				C04B6C822B814637009137A7 /* WelcomeViewModel.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		C0CE63CC2B8645600058B850 /* CustomLabels */ = {
+			isa = PBXGroup;
+			children = (
+				C0CE63CD2B8645B80058B850 /* CustomLabels.swift */,
+			);
+			path = CustomLabels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -544,6 +555,7 @@
 				C04B6C7E2B81398D009137A7 /* OnboardingView.swift in Sources */,
 				C00DB6D62B7FF95F008DFCB9 /* MainViewController.swift in Sources */,
 				C0B8E62E2B81075A0004BBFE /* OnboardingViewModel.swift in Sources */,
+				C0CE63CE2B8645B90058B850 /* CustomLabels.swift in Sources */,
 				C04B6C832B814637009137A7 /* WelcomeViewModel.swift in Sources */,
 				C0CE63C72B85BB280058B850 /* SignUpViewModel.swift in Sources */,
 				C0B8E6242B80FE820004BBFE /* UserAuthenticationProtocol.swift in Sources */,
