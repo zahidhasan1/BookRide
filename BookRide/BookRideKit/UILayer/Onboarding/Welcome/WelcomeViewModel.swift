@@ -21,7 +21,7 @@ public class WelcomeViewModel{
     
     @objc
     public func showSignUpView(){
-        //signUpNavigator.gotoSignUp()
+        signUpNavigator.gotoSignUp()
     }
     
     @objc

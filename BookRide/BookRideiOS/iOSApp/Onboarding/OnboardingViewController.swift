@@ -14,6 +14,7 @@ public class OnboardingViewController: NiblessNavigationController {
     var viewModel: OnboardingViewModel
     var welcomeViewController: WelcomeViewController
     var signInViewController: SignInViewController
+    var signUpViewController: SignUpViewController
     
     //State
     var subscriptions = Set<AnyCancellable>()
@@ -22,10 +23,12 @@ public class OnboardingViewController: NiblessNavigationController {
     
     init(viewModel: OnboardingViewModel,
          welcomeViewController: WelcomeViewController,
-         signInViewController: SignInViewController) {
+         signInViewController: SignInViewController,
+         signUpViewController: SignUpViewController) {
         self.viewModel = viewModel
         self.welcomeViewController = welcomeViewController
         self.signInViewController = signInViewController
+        self.signUpViewController = signUpViewController
         super.init()
         self.delegate = self
     }
@@ -68,6 +71,7 @@ extension OnboardingViewController{
             presentSignInViewController()
             print("Presenting SignIn ViewController")
         case .signUp:
+            presentSignUpViewController()
             print("Presenting SignUp ViewController")
         }
     }
@@ -78,6 +82,10 @@ extension OnboardingViewController{
     
     func presentSignInViewController(){
         pushViewController(signInViewController, animated: true)
+    }
+    
+    func presentSignUpViewController(){
+        pushViewController(signUpViewController, animated: true)
     }
 }
 
@@ -125,6 +133,8 @@ extension OnboardingViewController{
             return .welcome
         case is SignInViewController:
             return .signIn
+        case is SignUpViewController:
+            return .signUp
         default:
             assertionFailure("Encountered an unexpected child viewController type in OnboardingViewController")
             return nil
