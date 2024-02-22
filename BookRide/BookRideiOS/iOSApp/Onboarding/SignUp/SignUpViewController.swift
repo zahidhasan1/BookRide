@@ -23,6 +23,11 @@ class SignUpViewController: NiblessViewController {
         view = SignUpRootView(viewModel: viewModel)
     }
     
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //(view as! SignUpRootView).configureViewAfterLayout()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

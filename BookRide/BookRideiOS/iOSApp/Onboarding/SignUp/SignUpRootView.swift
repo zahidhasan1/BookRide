@@ -16,8 +16,35 @@ class SignUpRootView: NiblessView {
     let scrollView = UIScrollView()
     let contentView = UIView()
     
+    //MARK: - Title and Subtitle
+    let title: UILabel = {
+        let label = UILabel()
+        label.text = "Hi,"
+        label.font = UIFont(name: "Avenir-Heavy", size: 30)
+        label.textColor = Color.EggShell
+        return label
+    }()
+    
+    let subTitle: UILabel = {
+        let label = UILabel()
+        label.text = "Create a new Account"
+        label.font = UIFont(name: "Avenir-Heavy", size: 20)
+        label.textColor = Color.EggShell
+        return label
+    }()
+    
+    lazy var labelStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [title, subTitle])
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.spacing = 0
+        return stackView
+    }()
+    
     //MARK: - FullName
     let nameTextField: UITextField = {
+        
         return CustomTextFields.formTextField(placeholder: "Full Name")
     }()
     
@@ -145,7 +172,7 @@ class SignUpRootView: NiblessView {
     
     //MARK: - All Input Fields
     lazy var textEditStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: 
+        let stackView = UIStackView(arrangedSubviews:
                                         [stackNameInputField,
                                          stacknickNameField,
                                         stackEmailField,
@@ -179,35 +206,92 @@ class SignUpRootView: NiblessView {
     public override func didMoveToWindow() {
         super.didMoveToWindow()
         guard hirarchyNotReady else {return}
+        setupGesture()
         backgroundColor = Color.Umber
         constructViewHirarchy()
         activeConstraints()
-        //self.layoutIfNeeded()
         hirarchyNotReady = false
     }
     
+    func configureViewAfterLayout(){
+        resetScrollViewContentInset()
+    }
+    
+    func resetScrollViewContentInset(){
+        let scrollViewBounds = scrollView.bounds
+        let contentViewHeight = CGFloat(530.0)
+        
+        var scrollViewInsets = UIEdgeInsets.zero
+        scrollViewInsets.top = scrollViewBounds.size.height / 2.0
+        scrollViewInsets.top -= contentViewHeight / 2.0
+        
+        scrollViewInsets.bottom = scrollViewBounds.size.height / 2.0
+        scrollViewInsets.bottom -= contentViewHeight / 2.0
+        
+        scrollView.contentInset = scrollViewInsets
+    }
+    
     func constructViewHirarchy(){
-        self.addSubview(contentView)
-       // contentView.addSubview(textEditStackView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(labelStackView)
         contentView.addSubview(textEditStackView)
         contentView.addSubview(signUpButton)
+        addSubview(scrollView)
+    }
+}
+
+//MARK: - SetupTapGesture to dismissKeyboard
+extension SignUpRootView{
+    private func setupGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tapGesture.cancelsTouchesInView = false
+        self.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func handleTap(_ gesture: UITapGestureRecognizer){
+        self.endEditing(true)
     }
 }
 
 
+
+//MARK: -SetupCOnstraints
 extension SignUpRootView{
     func activeConstraints(){
+        activeConstraintForScrollView()
         activeContentViewConstraint()
+        activeLabelStackViewConstraint()
         activeTextEditStackViewConstraint()
         activeSignUpButtonConstraint()
     }
+    
+    func activeConstraintForScrollView(){
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
     func activeContentViewConstraint(){
         contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
+    }
+    
+    func activeLabelStackViewConstraint(){
+        labelStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            labelStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            labelStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            labelStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
     
@@ -216,9 +300,7 @@ extension SignUpRootView{
         NSLayoutConstraint.activate([
             textEditStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             textEditStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            textEditStackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-            //textEditStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            //textEditStackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            textEditStackView.topAnchor.constraint(equalTo: labelStackView.bottomAnchor, constant: 40)
         ])
     }
     
@@ -228,6 +310,7 @@ extension SignUpRootView{
             signUpButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             signUpButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             signUpButton.topAnchor.constraint(equalTo: textEditStackView.bottomAnchor, constant: 40),
+            signUpButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             signUpButton.heightAnchor.constraint(equalToConstant: 50),
             
         ])
