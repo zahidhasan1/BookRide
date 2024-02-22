@@ -6,14 +6,20 @@
 //
 
 import UIKit
+import Combine
 
 class SignUpRootView: NiblessView {
 
     //MARK: Properties
     var hirarchyNotReady: Bool = true
     let viewModel: SignUpViewModel
+    var subscriptions = Set<AnyCancellable>()
     
-    let scrollView = UIScrollView()
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.delaysContentTouches = false
+        return scrollView
+    }()
     let contentView = UIView()
     
     //MARK: - Title and Subtitle
@@ -184,6 +190,7 @@ class SignUpRootView: NiblessView {
         stackView.spacing = 20
         return stackView
     }()
+    
     //MARK: - SignUpButton
     let signUpButton: UIButton = {
         let button = UIButton(configuration: .filled())
@@ -201,6 +208,7 @@ class SignUpRootView: NiblessView {
     init(frame: CGRect = .zero, viewModel: SignUpViewModel){
         self.viewModel = viewModel
         super.init(frame: frame)
+        bindTextFieldsToViewModel()
     }
     
     public override func didMoveToWindow() {
@@ -210,6 +218,7 @@ class SignUpRootView: NiblessView {
         backgroundColor = Color.Umber
         constructViewHirarchy()
         activeConstraints()
+        signUpButton.addTarget(viewModel, action: #selector(viewModel.signUP), for: .touchUpInside)
         hirarchyNotReady = false
     }
     
@@ -243,13 +252,60 @@ class SignUpRootView: NiblessView {
 //MARK: - SetupTapGesture to dismissKeyboard
 extension SignUpRootView{
     private func setupGesture(){
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        tapGesture.cancelsTouchesInView = false
-        self.addGestureRecognizer(tapGesture)
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+//        tapGesture.cancelsTouchesInView = false
+//        self.addGestureRecognizer(tapGesture)
     }
     
     @objc private func handleTap(_ gesture: UITapGestureRecognizer){
         self.endEditing(true)
+    }
+}
+
+//MARK: - Bindings TextField
+extension SignUpRootView{
+    
+    func bindTextFieldsToViewModel(){
+        bindNameTextField()
+        bindNickNameTextField()
+        bindEmailField()
+        bindMobileNumberField()
+        bindPasswordField()
+    }
+    
+    func bindNameTextField(){
+        nameTextField.publisher(for: \.text)
+            .map{$0 ?? ""}
+            .assign(to: \.name, on: viewModel)
+            .store(in: &subscriptions)
+    }
+    
+    func bindNickNameTextField(){
+        nickNameTextField.publisher(for: \.text)
+            .map{ $0 ?? ""}
+            .assign(to: \.nickName, on: viewModel)
+            .store(in: &subscriptions)
+    }
+    
+    func bindEmailField(){
+        emailTextField.publisher(for: \.text)
+            .map{ $0 ?? ""}
+            .assign(to: \.email, on: viewModel)
+            .store(in: &subscriptions)
+    }
+    
+    func bindMobileNumberField(){
+        mobileTextField.publisher(for: \.text)
+            .map{ $0 ?? ""}
+            .assign(to: \.mobileNumber, on: viewModel)
+            .store(in: &subscriptions)
+    }
+    
+    func bindPasswordField(){
+        passwordTextField.publisher(for: \.text)
+            .map{ $0 ?? ""}
+            .assign(to: \.password, on: viewModel)
+            .store(in: &subscriptions)
     }
 }
 
