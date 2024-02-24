@@ -57,6 +57,7 @@
 		C0CE63CE2B8645B90058B850 /* CustomLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE63CD2B8645B80058B850 /* CustomLabels.swift */; };
 		C0F90BFB2B8A53A6008FEF45 /* SignInTextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F90BFA2B8A53A6008FEF45 /* SignInTextFieldValidator.swift */; };
 		C0F90BFD2B8A59D4008FEF45 /* SignUpTextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F90BFC2B8A59D4008FEF45 /* SignUpTextFieldValidator.swift */; };
+		C0F90C002B8A779C008FEF45 /* PhoneNumberValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F90BFF2B8A779C008FEF45 /* PhoneNumberValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		C0CE63CD2B8645B80058B850 /* CustomLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabels.swift; sourceTree = "<group>"; };
 		C0F90BFA2B8A53A6008FEF45 /* SignInTextFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTextFieldValidator.swift; sourceTree = "<group>"; };
 		C0F90BFC2B8A59D4008FEF45 /* SignUpTextFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextFieldValidator.swift; sourceTree = "<group>"; };
+		C0F90BFF2B8A779C008FEF45 /* PhoneNumberValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +333,7 @@
 				C0436F752B89BDD200EED99B /* EmailValidator.swift */,
 				C0436F772B89BE0700EED99B /* PasswordValidator.swift */,
 				C0436F792B89BE1F00EED99B /* NameValidator.swift */,
+				C0F90BFF2B8A779C008FEF45 /* PhoneNumberValidator.swift */,
 				C0436F7B2B89BE5400EED99B /* NormalValidator.swift */,
 			);
 			path = TextValidators;
@@ -597,6 +600,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0F90C002B8A779C008FEF45 /* PhoneNumberValidator.swift in Sources */,
 				C00DB6992B7FE6E9008DFCB9 /* AppDelegate.swift in Sources */,
 				C0B8E6282B80FF880004BBFE /* WelcomeRootView.swift in Sources */,
 				C0436F6E2B88EB2100EED99B /* TextValidationError.swift in Sources */,

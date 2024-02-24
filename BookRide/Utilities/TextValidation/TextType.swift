@@ -11,6 +11,7 @@ enum TextType{
     case email
     case password
     case name
+    case phoneNumber
     case normal
 }
 
