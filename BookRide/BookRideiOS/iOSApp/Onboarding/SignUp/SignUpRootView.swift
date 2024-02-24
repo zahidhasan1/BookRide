@@ -315,7 +315,18 @@ extension SignUpRootView{
     }
 }
 
-
+//MARK: -
+extension SignUpRootView{
+    func moveContentForDismissKeyboard(){
+        resetScrollViewContentInset()
+    }
+    
+    func moveContent(for keyboardFrame: CGRect){
+        var insets = scrollView.contentInset
+        insets.bottom = keyboardFrame.height
+        scrollView.contentInset = insets
+    }
+}
 
 //MARK: -SetupConstraints
 extension SignUpRootView{

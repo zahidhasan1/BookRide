@@ -25,11 +25,50 @@ class SignUpViewController: NiblessViewController {
     
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        //(view as! SignUpRootView).configureViewAfterLayout()
+        (view as! SignUpRootView).configureViewAfterLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addKeyboardObservers()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeObservers()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+}
+
+//MARK: - Keyboard
+extension SignUpViewController{
+    func addKeyboardObservers(){
+        let notificationCenter = NotificationCenter.default
+        
+        notificationCenter.addObserver(self, selector: #selector(handleContentUnderKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+        notificationCenter.addObserver(self, selector: #selector(handleContentUnderKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func removeObservers(){
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
+    @objc
+    func handleContentUnderKeyboard(notification: Notification){
+        if let userInfo = notification.userInfo,
+           let keyboardEndFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
+            let convertedKeyboardFrame = view.convert(keyboardEndFrame.cgRectValue, from: view.window)
+            if notification.name == UIResponder.keyboardWillHideNotification{
+                (view as! SignUpRootView).moveContentForDismissKeyboard()
+            }else{
+                (view as! SignUpRootView).moveContent(for: convertedKeyboardFrame)
+            }
+        }
     }
 }
 
