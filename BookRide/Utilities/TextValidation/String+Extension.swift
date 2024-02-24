@@ -8,12 +8,16 @@
 import Foundation
 
 extension String {
-    func checkValidation(textType: TextType = .normal) -> Result<Bool, TextValidationError>{
-        if self.isEmpty {return .failure(.empty)}
+    func checkValidation(textType: TextType = .normal) -> TextValidationError {
+        if self.isEmpty {return .empty}
         
         let validator = getValidator(for: textType)
         
-        return validator.validate(text: self) ? .success(true) : .failure(.notValid)
+        
+        let isValid = validator.validate(text: self)
+        return isValid ? .valid : .notValid
+        
+        
     }
     
     private func getValidator(for textType: TextType = .normal) -> TextValidation {

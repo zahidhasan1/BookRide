@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum TextValidationError: Error{
+public enum TextValidationError: Error{
     case empty
+    case valid
     case notValid
 }

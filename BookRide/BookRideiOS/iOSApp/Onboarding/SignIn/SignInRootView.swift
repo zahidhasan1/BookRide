@@ -115,6 +115,7 @@ class SignInRootView: NiblessView {
         self.viewModel = viewModel
         super.init(frame: frame)
         bindTextFieldsToViewModel()
+        bindViewModelToView()
     }
     
     public override func didMoveToWindow() {
@@ -168,6 +169,39 @@ extension SignInRootView{
         passwordTextField.publisher(for: \.text)
             .map{$0 ?? ""}
             .assign(to: \.password, on: viewModel)
+            .store(in: &subscriptions)
+    }
+}
+
+//MARK: - Dynamic Behavior
+extension SignInRootView{
+    func bindViewModelToView(){
+        bindViewModelToEmailTextField()
+        bindViewModelToPasswordTextField()
+        bindViewModelToSignInButton()
+    }
+    
+    func bindViewModelToEmailTextField(){
+        viewModel
+            .$emailInputEnabled
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isEnabled, on: emailTextField)
+            .store(in: &subscriptions)
+    }
+    
+    func bindViewModelToPasswordTextField(){
+        viewModel
+            .$passwordInputEnabled
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isEnabled, on: passwordTextField)
+            .store(in: &subscriptions)
+    }
+    
+    func bindViewModelToSignInButton(){
+        viewModel
+            .$loginButtonEnabled
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isEnabled, on: signInButton)
             .store(in: &subscriptions)
     }
 }
