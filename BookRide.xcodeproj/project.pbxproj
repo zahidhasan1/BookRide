@@ -56,6 +56,7 @@
 		C0CE63CB2B85BB730058B850 /* SignUpRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE63CA2B85BB730058B850 /* SignUpRootView.swift */; };
 		C0CE63CE2B8645B90058B850 /* CustomLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE63CD2B8645B80058B850 /* CustomLabels.swift */; };
 		C0F90BFB2B8A53A6008FEF45 /* SignInTextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F90BFA2B8A53A6008FEF45 /* SignInTextFieldValidator.swift */; };
+		C0F90BFD2B8A59D4008FEF45 /* SignUpTextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F90BFC2B8A59D4008FEF45 /* SignUpTextFieldValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		C0CE63CA2B85BB730058B850 /* SignUpRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRootView.swift; sourceTree = "<group>"; };
 		C0CE63CD2B8645B80058B850 /* CustomLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabels.swift; sourceTree = "<group>"; };
 		C0F90BFA2B8A53A6008FEF45 /* SignInTextFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTextFieldValidator.swift; sourceTree = "<group>"; };
+		C0F90BFC2B8A59D4008FEF45 /* SignUpTextFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextFieldValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,7 +404,6 @@
 			children = (
 				C04B6C8F2B84720B009137A7 /* SignInViewController.swift */,
 				C04B6C912B847227009137A7 /* SignInRootView.swift */,
-				C0F90BFA2B8A53A6008FEF45 /* SignInTextFieldValidator.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -434,6 +435,7 @@
 		C0B8E62A2B81072B0004BBFE /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				C0F90BFA2B8A53A6008FEF45 /* SignInTextFieldValidator.swift */,
 				C04B6C942B847269009137A7 /* SignInViewModel.swift */,
 			);
 			path = SignIn;
@@ -442,6 +444,7 @@
 		C0B8E62B2B8107330004BBFE /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				C0F90BFC2B8A59D4008FEF45 /* SignUpTextFieldValidator.swift */,
 				C0CE63C62B85BB280058B850 /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
@@ -620,6 +623,7 @@
 				C0436F802B89E04400EED99B /* ErrorMessage.swift in Sources */,
 				C04B6C892B81499D009137A7 /* OnboardingDependencyContainer.swift in Sources */,
 				C0B8E61B2B80E2010004BBFE /* ViewControllerContainment.swift in Sources */,
+				C0F90BFD2B8A59D4008FEF45 /* SignUpTextFieldValidator.swift in Sources */,
 				C0CE63C92B85BB5B0058B850 /* SignUpViewController.swift in Sources */,
 				C04B6C812B813A18009137A7 /* NavigationAction.swift in Sources */,
 				C00DB6D32B7FF85A008DFCB9 /* NiblessView.swift in Sources */,

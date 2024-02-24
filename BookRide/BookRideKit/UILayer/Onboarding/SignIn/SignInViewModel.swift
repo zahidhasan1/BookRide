@@ -56,6 +56,7 @@ class SignInViewModel{
     func indicateErrorSigningIn(error: ErrorMessage){
         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
             print(error)
+            self.errorMessageSubject.send(error)
             self.emailInputEnabled = true
             self.passwordInputEnabled = true
             self.loginButtonEnabled = true
