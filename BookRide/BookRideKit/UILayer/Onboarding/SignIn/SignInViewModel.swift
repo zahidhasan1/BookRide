@@ -37,7 +37,6 @@ class SignInViewModel{
     }
     
     func prepareToSignIn(){
-        print("Disable Buttons")
         emailInputEnabled = false
         passwordInputEnabled = false
         loginButtonEnabled = false
@@ -54,7 +53,7 @@ class SignInViewModel{
     }
     
     func indicateErrorSigningIn(error: ErrorMessage){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
             print(error)
             self.errorMessageSubject.send(error)
             self.emailInputEnabled = true

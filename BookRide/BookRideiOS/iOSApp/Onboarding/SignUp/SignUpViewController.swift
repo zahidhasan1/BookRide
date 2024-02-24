@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Combine
 
 class SignUpViewController: NiblessViewController {
     //MARK: - Properties
     let viewModelFactory: SignUpViewModelFactory
     let viewModel: SignUpViewModel
+    var subscribers = Set<AnyCancellable>()
     
     //MARK: - Mehods
     init(viewModelFactory: SignUpViewModelFactory) {
@@ -40,6 +42,28 @@ class SignUpViewController: NiblessViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func observerErrorMessage(){
+        viewModel
+            .errorMessagePublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] errorMessage in
+                self?.present(errorMessage)
+            }
+            .store(in: &subscribers)
+    }
+}
+
+extension SignUpViewController{
+    func present(_ errorMessage: ErrorMessage){
+        let errorAlertController = UIAlertController(
+            title: errorMessage.title,
+            message: errorMessage.message,
+            preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        errorAlertController.addAction(okAction)
+        present(errorAlertController, animated: true)
     }
 }
 

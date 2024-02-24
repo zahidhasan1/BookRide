@@ -215,6 +215,7 @@ class SignUpRootView: NiblessView {
         self.viewModel = viewModel
         super.init(frame: frame)
         bindTextFieldsToViewModel()
+        bindViewModelToView()
     }
     
     public override func didMoveToWindow() {
@@ -311,6 +312,66 @@ extension SignUpRootView{
         passwordTextField.publisher(for: \.text)
             .map{ $0 ?? ""}
             .assign(to: \.password, on: viewModel)
+            .store(in: &subscriptions)
+    }
+}
+
+//MARK: - Dynamic Behavior
+extension SignUpRootView{
+    func bindViewModelToView(){
+        bindViewModelToNameTextField()
+        bindViewModelToNickNameTextField()
+        bindViewModelToEmailTextField()
+        bindViewModelToMobileTextField()
+        bindViewModelToPasswordTextField()
+        bindViewModelToSignUpButton()
+    }
+    
+    func bindViewModelToNameTextField(){
+        viewModel
+            .$nameInputEnabled
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isEnabled, on: nameTextField)
+            .store(in: &subscriptions)
+    }
+    
+    func bindViewModelToNickNameTextField(){
+        viewModel
+            .$nickNameInputEnabled
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isEnabled, on: nickNameTextField)
+            .store(in: &subscriptions)
+    }
+    
+    func bindViewModelToEmailTextField(){
+        viewModel
+            .$emailInputEnabled
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isEnabled, on: emailTextField)
+            .store(in: &subscriptions)
+    }
+    
+    func bindViewModelToMobileTextField(){
+        viewModel
+            .$phoneNumberInputEnabled
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isEnabled, on: mobileTextField)
+            .store(in: &subscriptions)
+    }
+    
+    func bindViewModelToPasswordTextField(){
+        viewModel
+            .$passwordInputEnabled
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isEnabled, on: passwordTextField)
+            .store(in: &subscriptions)
+    }
+    
+    func bindViewModelToSignUpButton(){
+        viewModel
+            .$passwordInputEnabled
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isEnabled, on: signUpButton)
             .store(in: &subscriptions)
     }
 }

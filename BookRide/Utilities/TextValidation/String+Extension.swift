@@ -30,6 +30,8 @@ extension String {
             return NameValidator()
         case .normal:
             return NoValidation()
+        case .phoneNumber:
+            return PhoneNumberValidator()
         }
     }
 }
