@@ -9,4 +9,13 @@ import Foundation
 class SignInViewModel{
     init() {
     }
+    
+    var email: String = ""
+    var password: String = ""
+    
+    @objc
+    func signIn(){
+        print("email: \(email)")
+        print("password: \(password)")
+    }
 }

@@ -103,7 +103,9 @@ class SignUpRootView: NiblessView {
     
     //MARK: - Email
     let emailTextField: UITextField = {
-        return CustomTextFields.formTextField(placeholder: "Email")
+        let textField = CustomTextFields.formTextField(placeholder: "Email")
+        textField.keyboardType = .emailAddress
+        return textField
     }()
     
     let emailIcon: UIImageView = {
@@ -128,7 +130,9 @@ class SignUpRootView: NiblessView {
     
     //MARK: - Mobile
     let mobileTextField: UITextField = {
-        return CustomTextFields.formTextField(placeholder: "Mobile Number")
+        let textField = CustomTextFields.formTextField(placeholder: "Mobile Number")
+        textField.keyboardType = .numberPad
+        return textField
     }()
     
     let mobileNumberIcon: UIImageView = {
@@ -154,7 +158,9 @@ class SignUpRootView: NiblessView {
     
     //MARK: - Password
     let passwordTextField: UITextField = {
-        return CustomTextFields.passwordTextField(placeholder: "Password")
+        let textField = CustomTextFields.passwordTextField(placeholder: "Password")
+        textField.isSecureTextEntry = true
+        return textField
     }()
     
     let passwordIcon: UIImageView = {
@@ -252,9 +258,9 @@ class SignUpRootView: NiblessView {
 //MARK: - SetupTapGesture to dismissKeyboard
 extension SignUpRootView{
     private func setupGesture(){
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-//        tapGesture.cancelsTouchesInView = false
-//        self.addGestureRecognizer(tapGesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tapGesture.cancelsTouchesInView = false
+        self.addGestureRecognizer(tapGesture)
     }
     
     @objc private func handleTap(_ gesture: UITapGestureRecognizer){
@@ -311,7 +317,7 @@ extension SignUpRootView{
 
 
 
-//MARK: -SetupCOnstraints
+//MARK: -SetupConstraints
 extension SignUpRootView{
     func activeConstraints(){
         activeConstraintForScrollView()

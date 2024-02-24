@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Combine
 
 class SignInRootView: NiblessView {
     
     //MARK: Properties
     var hirarchyNotReady: Bool = true
     let viewModel: SignInViewModel
+    var subscriptions = Set<AnyCancellable>()
     
     let contentView = UIView()
     
@@ -33,7 +35,9 @@ class SignInRootView: NiblessView {
     
     
     let emailTextField: UITextField = {
-        return CustomTextFields.formTextField(placeholder: "Enter Email")
+        let textField =  CustomTextFields.formTextField(placeholder: "Enter Email")
+        textField.keyboardType = .emailAddress
+        return textField
     }()
     
     let emailIcon: UIImageView = {
@@ -45,7 +49,9 @@ class SignInRootView: NiblessView {
     }()
     
     let passwordTextField: UITextField = {
-        return CustomTextFields.passwordTextField(placeholder: "Enter Password")
+        let textField = CustomTextFields.passwordTextField(placeholder: "Enter Password")
+        textField.isSecureTextEntry = true
+        return textField
     }()
     
     let passwordIcon: UIImageView = {
@@ -55,7 +61,6 @@ class SignInRootView: NiblessView {
         imageView.tintColor = Color.EggShell
         return imageView
     }()
-    
     
     lazy var emailSectionStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [emailIcon, emailTextField])
@@ -109,14 +114,17 @@ class SignInRootView: NiblessView {
          viewModel: SignInViewModel){
         self.viewModel = viewModel
         super.init(frame: frame)
+        bindTextFieldsToViewModel()
     }
     
     public override func didMoveToWindow() {
         super.didMoveToWindow()
         guard hirarchyNotReady else {return}
+        setupGesture()
         backgroundColor = Color.Umber
         constructViewHirarchy()
         activeConstraints()
+        signInButton.addTarget(self.viewModel, action: #selector(viewModel.signIn), for: .touchUpInside)
         hirarchyNotReady = false
         
     }
@@ -126,6 +134,41 @@ class SignInRootView: NiblessView {
         self.addSubview(labelStackView)
         self.addSubview(textEditStackView)
         self.addSubview(signInButton)
+    }
+}
+
+//MARK: - SetupTapGesture to dismissKeyboard
+extension SignInRootView{
+    private func setupGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tapGesture.cancelsTouchesInView = false
+        self.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func handleTap(_ gesture: UITapGestureRecognizer){
+        self.endEditing(true)
+    }
+}
+
+//MARK: - Bindings TextField
+extension SignInRootView{
+    func bindTextFieldsToViewModel(){
+        bindEmailTextField()
+        bindPasswordTextField()
+    }
+    
+    func bindEmailTextField(){
+        emailTextField.publisher(for: \.text)
+            .map{$0 ?? ""}
+            .assign(to: \.email, on: viewModel)
+            .store(in: &subscriptions)
+    }
+    
+    func bindPasswordTextField(){
+        passwordTextField.publisher(for: \.text)
+            .map{$0 ?? ""}
+            .assign(to: \.password, on: viewModel)
+            .store(in: &subscriptions)
     }
 }
 
